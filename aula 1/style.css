@@ -1,0 +1,40 @@
+.Voltar {
+    text-decoration: none;
+    color: black;
+    padding: 8px;
+    background-color: aqua;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+body {
+    margin: 0;
+    padding: 15px;
+    font-family: 'Arial', sans-serif; /* Adicione a fonte desejada */
+    background-color: aquamarine;
+}
+
+.titulo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    height: 30vh; /* Garante que o título ocupa toda a altura da viewport */
+}
+
+.titulo h1 {
+    margin: 0; /* Remove a margem padrão do h1 */
+}
+.titulo p {
+    width: 50%;
+    text-align: center; /* Centraliza o texto dentro do parágrafo */
+    margin-top: 20px; /* Remove a margem superior padrão do parágrafo */
+}
+
+
+.img {
+    width: 25%;
+    display: block;
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
