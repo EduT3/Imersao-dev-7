@@ -11,8 +11,8 @@ body {
     margin: 0;
     padding: 15px;
     font-family: 'Arial', sans-serif; /* Adicione a fonte desejada */
-    background-color: aquamarine;
-}
+    background-image: url("https://caelum-online-public.s3.amazonaws.com/assets-imersaodev/background_mentalista.png");
+    background-color: #000000;}
 
 .titulo {
     width: 100%;
