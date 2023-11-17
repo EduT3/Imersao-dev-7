@@ -1,44 +1,47 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif; /* Adicione a fonte desejada */
-    background-image: url("https://caelum-online-public.s3.amazonaws.com/assets-imersaodev/background_mentalista.png");
-    background-color: #000000;}
-
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif; /* Adicione a fonte desejada */
+  background-image: url("https://caelum-online-public.s3.amazonaws.com/assets-imersaodev/background_mentalista.png");
+}
 .titulo {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-    height: 30vh; /* Garante que o título ocupa toda a altura da viewport */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  color: #f0f0f0;
+  height: 30vh; /* Garante que o título ocupa toda a altura da viewport */
 }
 
 .titulo h1 {
-    margin: 0; /* Remove a margem padrão do h1 */
+  margin: 0; /* Remove a margem padrão do h1 */
 }
-.titulo p{
-    width: 50%;
+.titulo p {
+  width: 50%;
 }
 main {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Cria colunas responsivas */
-    gap: 20px; /* Espaçamento entre as boxes */
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 800px; /* Set the maximum width for the container */
+  margin: 0 auto; /* Center the container on the page */
 }
 
 .box {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
 }
 
-.box:hover{
-    border:1px solid black;
-    background-color:blueviolet;
+.box:hover {
+  border: 1px solid black;
+  background-color: rgb(16, 72, 175);
+  color: #f0f0f0;
 }
-.box{
-    text-decoration: none;
-    color: black;
+.box {
+  text-decoration: none;
+  color: black;
 }
