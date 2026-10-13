@@ -1,49 +1,46 @@
-var listaFilmes = [];
+const listaFilmes = [];
 
 function adicionarFilme() {
-  var url = document.querySelector("#filme").value;
-  var nomeFilme = document.querySelector("#nomeFilme").value;
-
-  if (url !== "" && nomeFilme !== "") {
-    var filme = {
-      url: url,
-      nome: nomeFilme
-    };
-
-    listaFilmes.push(filme);
-
-    atualizarListaFilmes();
-    limparInputs();
-  } else {
-    alert("Por favor, insira o endereço de imagem e o nome do filme.");
+  const campoUrl = document.getElementById("filme");
+  const campoNome = document.getElementById("nomeFilme");
+  const nome = campoNome.value.trim();
+  let url;
+  try {
+    url = new URL(campoUrl.value.trim());
+    if (!["https:", "http:"].includes(url.protocol) || !nome) throw new Error("Entrada inválida");
+  } catch {
+    alert("Informe o nome do filme e uma URL de imagem http ou https válida.");
+    return;
   }
+  listaFilmes.push({ url: url.href, nome });
+  atualizarListaFilmes();
+  campoUrl.value = "";
+  campoNome.value = "";
+  campoUrl.focus();
 }
 
 function atualizarListaFilmes() {
-    var elementoFilmes = document.getElementById("listaFilmes");
-    elementoFilmes.innerHTML = "";
-  
-    listaFilmes.forEach(function(filme) {
-      elementoFilmes.innerHTML += `<div class="filme-item">
-                                      <img src="${filme.url}" alt="${filme.nome}">
-                                      <p>${filme.nome}</p>
-                                      <button onclick="removerFilme('${filme.nome}')">Remover</button>
-                                    </div>`;
-    });
-  
-  }
-  
-  
-
-function limparInputs() {
-  document.querySelector("#filme").value = "";
-  document.querySelector("#nomeFilme").value = "";
+  const elementoFilmes = document.getElementById("listaFilmes");
+  elementoFilmes.replaceChildren();
+  listaFilmes.forEach((filme, indice) => {
+    const card = document.createElement("div");
+    card.className = "filme-item";
+    const imagem = document.createElement("img");
+    imagem.src = filme.url;
+    imagem.alt = filme.nome;
+    imagem.loading = "lazy";
+    const nome = document.createElement("p");
+    nome.textContent = filme.nome;
+    const remover = document.createElement("button");
+    remover.textContent = "Remover";
+    remover.setAttribute("aria-label", `Remover ${filme.nome}`);
+    remover.addEventListener("click", () => removerFilme(indice));
+    card.append(imagem, nome, remover);
+    elementoFilmes.appendChild(card);
+  });
 }
 
-function removerFilme(nomeFilme) {
-  listaFilmes = listaFilmes.filter(function(filme) {
-    return filme.nome !== nomeFilme;
-  });
-
+function removerFilme(indice) {
+  listaFilmes.splice(indice, 1);
   atualizarListaFilmes();
 }
