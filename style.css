@@ -11,18 +11,20 @@ body {
   justify-content: center; /* Centraliza o conteúdo horizontalmente */
   align-items: center; /* Centraliza o conteúdo verticalmente */
   color: #f0f0f0;
-  height: 30vh; /* Garante que o título ocupa toda a altura da viewport */
+  min-height: 30vh;
+  padding: 2rem 1rem;
+  box-sizing: border-box; /* Garante que o título ocupa toda a altura da viewport */
 }
 
 .titulo h1 {
   margin: 0; /* Remove a margem padrão do h1 */
 }
 .titulo p {
-  width: 50%;
+  width: min(100%, 65ch);
 }
 main {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   gap: 20px;
   padding: 20px;
   max-width: 800px; /* Set the maximum width for the container */
@@ -45,3 +47,7 @@ main {
   text-decoration: none;
   color: black;
 }
+
+body { background-color: #0f172a; line-height: 1.6; }
+.box:focus-visible { outline: 3px solid #fbbf24; outline-offset: 4px; }
+.titulo h1 { text-align: center; font-size: clamp(1.6rem, 5vw, 2.5rem); }
